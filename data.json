@@ -1,0 +1,26 @@
+{
+	"minimalBalance": 0.01
+	,
+	"tokens":[
+		
+		"NEON",
+		"USDC",
+		"USDT",
+		"JUP",
+		"Bonk"
+
+	],
+	
+	"swapAmounts":{
+	
+		"Swaps": [0.000011, 0.000021],
+		"Sizes": [70, 80]
+	
+	},
+	"moralis_api": 
+
+		"yourAPIkey"
+	,
+	"retry": 3
+
+}
