@@ -19,8 +19,11 @@
 	},
 	"moralis_api": 
 
-		"yourAPIkey"
+		"yourAPI"
 	,
 	"retry": 3
+	,
+	"mobileProxy":"yourProxy",
+	"switchLink":"yourSwitchLink"
 
 }

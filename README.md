@@ -16,6 +16,8 @@ Channel: @hashvers (TG)
 3. Mode - operation mode
    1. Swaps - swaps SOL in one direction to a randomly selected token from the `data.json` file. The swap range for SOL is specified in the `data.json` file under the parameter `swapAmounts.Swaps`.
    2. Sizes - cyclic swap (SOL->Token Token->SOL) to a random token from the list in the `data.json` file. The swap range for this mode is set in % in the `data.json` file under the parameter `swapAmounts.Sizes`.
+   3. Drip Initiation - completing the Phantom quest and registering Drip. (works through mobile proxy!)
+   4. Drip Daily - collecting daily Droplets on accounts. (works through mobile proxy!)
 4. Swap Count - range of swap counts.
 5. Sleep(in sec) - Sleep range. Do not set the lower value too low (below 10 sec.).
 6. Clear DoneList - After finishing work or insufficient balance on the address, private keys are written to the `done_list.txt` file so that the software understands which accounts it has passed and which ones it has not, in case you interrupt its work or the thread terminates with an error. If you need to run all wallets again (for example, a new day) - select Yes.
@@ -36,6 +38,10 @@ Channel: @hashvers (TG)
   `moralis_api` - API key for checking balances on addresses. The free Default key is sufficient. Obtain it here - https://admin.moralis.io/settings
  
   `retry`- maximum number of retries in case of a failed swap.
+
+  `mobileProxy` - mobile proxies for Drip operation modes.
+ 
+  `switchLink` - link for switching.
  
 
  **Files for operation**
@@ -59,6 +65,8 @@ Channel: @hashvers (TG)
 3. Mode  - режим работы
 	1. Swaps - свап SOL в одну сторону в рандомно выбраный токен с файла `data.json`. Диапазон значений для свапа указывается  в файле `data.json` параметр `swapAmounts.Swaps`.
 	2. Sizes - цикличный свап(SOL->Токен Токен->SOL) в рандомный токен с списка в файле `data.json`. Диапазон свапа для этого режима задается в % в файле `data.json` параметр `swapAmounts.Sizes`.
+   3. Drip Initiation - выполнение квеста Phantom и регистрация Drip. (работает через моб. прокси!)
+   4. Drip Daily - сбор дейли Droplets на аккаунтах. (работает через моб. прокси!)
 4. Swap Count - диапазон количества свапов.
 5. Sleep(in sec) - диапазон Сна. Нижние значение не ставить слишком малое(ниже 10 сек.).
 6. Clear DoneList - После успешного выполнения или отсутствия достаточного баланаса в файл `done_list.txt` записываются приватники, чтобы софт понимал какие аккаунты он прошел а какие нет, в случае если вы прервали его работу или поток завершится с ошибкой. Если нужно прогнать все кошельки заново(новый день к примеру) - выбираем Yes.
@@ -79,6 +87,10 @@ Channel: @hashvers (TG)
   `moralis_api` - апи ключ для проверки балансов на адресах. Достаточно бесплатного Default. Брать тут - https://admin.moralis.io/settings
  
   `retry`- максимальное количество повторений при неудачном свапе.
+
+  `mobileProxy` - мобильные прокси для режимов работы с Drip.
+
+  `switchLink` - ссылка для переключения.
  
 
  **Файлы для работы**
