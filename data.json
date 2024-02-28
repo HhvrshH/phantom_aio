@@ -19,11 +19,14 @@
 	},
 	"moralis_api": 
 
-		"yourAPI"
+		"YourAPIhere"
 	,
 	"retry": 3
 	,
-	"mobileProxy":"yourProxy",
-	"switchLink":"yourSwitchLink"
+	"donateMode":{
 
+		"howMuchSpendDropletsInPersentage":[80,90]
+		,
+		"howMuchSpendDropletsforEachProject":[1,2]	
+	}
 }

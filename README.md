@@ -2,11 +2,13 @@
 
 Written by: @hvrsh (TG)
 
-Channel: @hashvers (TG)
+Channel: https://t.me/hashvers (TG)
 
 ---
 
 **Automation on BAS for exchanges in the Phantom wallet**
+
+**Setup when launching `phantom_aio.xml`:**
 
 **Setup when launching `phantom_aio.xml`:**
 
@@ -16,11 +18,14 @@ Channel: @hashvers (TG)
 3. Mode - operation mode
    1. Swaps - swaps SOL in one direction to a randomly selected token from the `data.json` file. The swap range for SOL is specified in the `data.json` file under the parameter `swapAmounts.Swaps`.
    2. Sizes - cyclic swap (SOL->Token Token->SOL) to a random token from the list in the `data.json` file. The swap range for this mode is set in % in the `data.json` file under the parameter `swapAmounts.Sizes`.
-   3. Drip Initiation - completing the Phantom quest and registering Drip. (works through mobile proxy!)
-   4. Drip Daily - collecting daily Droplets on accounts. (works through mobile proxy!)
+   3. Drip Initiation - Phantom quest completion and Drip registration.
+   4. Drip Daily - collecting daily Droplets on accounts.
+      1. If `Legendary lock in` is enabled, it will attempt to open the chest.
+      2. If `Donate to Projects` is enabled, it will subscribe to projects and donate to them.
+
 4. Swap Count - range of swap counts.
 5. Sleep(in sec) - Sleep range. Do not set the lower value too low (below 10 sec.).
-6. Clear DoneList - After finishing work or insufficient balance on the address, private keys are written to the `done_list.txt` file so that the software understands which accounts it has passed and which ones it has not, in case you interrupt its work or the thread terminates with an error. If you need to run all wallets again (for example, a new day) - select Yes.
+6. Clear DoneList - After successful completion or insufficient balance, private keys are written to the `done_list.txt` file so that the software understands which accounts it has passed and which ones it has not, in case you interrupt its work or the thread terminates with an error. If you need to rerun all wallets (for example, a new day) - select Yes.
 7. Wallet shuffle - whether to shuffle wallets.
 8. Proxy Type - proxy type.
 
@@ -39,18 +44,19 @@ Channel: @hashvers (TG)
  
   `retry`- maximum number of retries in case of a failed swap.
 
-  `mobileProxy` - mobile proxies for Drip operation modes.
- 
-  `switchLink` - link for switching.
- 
+  `howMuchSpendDropletsInPersentage` - range in percentage of how much Droplets can be spent on donations to projects from `projects.txt`
+
+  `howMuchSpendDropletsforEachProject` - range in the amount of how much to donate to each of the projects. if [0,0] is specified, only subscription to the project will be made, otherwise subscription + donation will be made.
 
  **Files for operation**
 
- `private.txt` - Specify private keys or seed phrases. If there are several active wallets under a seed phrase, be sure to specify which one to use by adding the ordinal number of the address after the seed phrase. (example in the file)
+ `private.txt` - Specify either private keys or seed phrases. If there are several active wallets under a seed phrase, be sure to specify which one to use by adding the ordinal number of the address after the seed phrase. (example in the file)
 
  `proxy.txt` - proxies, selected line by line.
 
  `data.json` - additional settings.
+ 
+ `projects.txt` - list with the exact names of projects to be processed.
  
 
 ---
@@ -65,8 +71,11 @@ Channel: @hashvers (TG)
 3. Mode  - режим работы
 	1. Swaps - свап SOL в одну сторону в рандомно выбраный токен с файла `data.json`. Диапазон значений для свапа указывается  в файле `data.json` параметр `swapAmounts.Swaps`.
 	2. Sizes - цикличный свап(SOL->Токен Токен->SOL) в рандомный токен с списка в файле `data.json`. Диапазон свапа для этого режима задается в % в файле `data.json` параметр `swapAmounts.Sizes`.
-   3. Drip Initiation - выполнение квеста Phantom и регистрация Drip. (работает через моб. прокси!)
-   4. Drip Daily - сбор дейли Droplets на аккаунтах. (работает через моб. прокси!)
+   3. Drip Initiation - выполнение квеста Phantom и регистрация Drip.
+   4. Drip Daily - сбор дейли Droplets на аккаунтах.
+      1. Если включено `Legendary lock in`  будет пробовать открывать сундук
+      2. Если Включено `Donate to Projects` будет подписываться на проекты и донатить им.
+
 4. Swap Count - диапазон количества свапов.
 5. Sleep(in sec) - диапазон Сна. Нижние значение не ставить слишком малое(ниже 10 сек.).
 6. Clear DoneList - После успешного выполнения или отсутствия достаточного баланаса в файл `done_list.txt` записываются приватники, чтобы софт понимал какие аккаунты он прошел а какие нет, в случае если вы прервали его работу или поток завершится с ошибкой. Если нужно прогнать все кошельки заново(новый день к примеру) - выбираем Yes.
@@ -88,10 +97,9 @@ Channel: @hashvers (TG)
  
   `retry`- максимальное количество повторений при неудачном свапе.
 
-  `mobileProxy` - мобильные прокси для режимов работы с Drip.
+  `howMuchSpendDropletsInPersentage` - диапазон в процентах сколько можно потратить Droplets на донаты проектам с `projects.txt`
 
-  `switchLink` - ссылка для переключения.
- 
+  `howMuchSpendDropletsforEachProject` - диапазон в количистве столько донатить каждому из проектов. если будет указано [0,0] то будет сделана тольоко подписка на проект, иначе подписка + донат.
 
  **Файлы для работы**
 
@@ -101,3 +109,4 @@ Channel: @hashvers (TG)
 
  `data.json` - дополнительные настройки.
  
+ `projects.txt` - список с точным названием проектов что будут обрабатывватся.
